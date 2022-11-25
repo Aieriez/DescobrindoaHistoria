@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class DestroyTrap : MonoBehaviour
 {
-    public float temp = 2f;
+    public float temp = 1f;
+    private Rigidbody2D arrow;
+
+    void Start() 
+    {
+        arrow = GetComponent<Rigidbody2D>();
+    }
 
 void OnCollisionEnter2D(Collision2D other)
     {

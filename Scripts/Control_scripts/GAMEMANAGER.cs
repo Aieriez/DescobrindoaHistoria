@@ -25,8 +25,7 @@ public class GAMEMANAGER : MonoBehaviour {
 
     void Awake()
 	{
-        //ZPlayerPrefs.Initialize(POINTMANAGER.instance.LoadPassword(), "descobrindoahistoria");
-		if (instance == null)
+        if (instance == null)
         {
 			instance = this;
 			DontDestroyOnLoad (this.gameObject);
@@ -43,7 +42,7 @@ public class GAMEMANAGER : MonoBehaviour {
     {
         if(!CURRENTSCENE.instance.levelName.Equals("Menu_Iniciar") && !CURRENTSCENE.instance.levelName.Equals("Menu_Levels") && !CURRENTSCENE.instance.levelName.Equals("Ranking"))
         {            
-            startPos  = GameObject.FindWithTag("Respawn").GetComponent<Transform>();
+            
             player = GameObject.FindWithTag("Player");
             life = 100;
             starNums = 0;
@@ -68,6 +67,7 @@ public class GAMEMANAGER : MonoBehaviour {
         star2End = false;
         isPaused = false;
         bombsNum = 3;
+        startPos  = GameObject.FindWithTag("Respawn").GetComponent<Transform>();
         heroName = POINTMANAGER.playerName;
         AUDIOMANAGER.instance.audioPause = false;
         UIMANAGER.instance.lifebar.fillAmount = (float)life/100; 
@@ -93,7 +93,7 @@ public class GAMEMANAGER : MonoBehaviour {
                 if(CURRENTSCENE.instance.levelName.Equals("Level_5"))
                 {
                     POINTMANAGER.instance.SaveToData(POINTMANAGER.playerName);
-                    ZPlayerPrefs.DeleteAll();
+
                 }
                 if (!UIMANAGER.instance.winClip.isPlaying && winAudio == false)
                 {

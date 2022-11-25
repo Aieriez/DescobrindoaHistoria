@@ -8,7 +8,6 @@ using TMPro;
 public class LEVELMANAGER : MonoBehaviour
 {
     public static LEVELMANAGER instance;
-
     [SerializeField]
     public GameObject button;
     public Transform levelPanel;
@@ -27,7 +26,7 @@ public class LEVELMANAGER : MonoBehaviour
     {   
         password = POINTMANAGER.instance.LoadPassword();
         ZPlayerPrefs.Initialize(password, "descobrindoahistoria");
-        if (instance == null)
+        /*if (instance == null)
         {
 			instance = this;
 			DontDestroyOnLoad (this.gameObject);
@@ -35,7 +34,7 @@ public class LEVELMANAGER : MonoBehaviour
         else 
         {
 			Destroy (gameObject);
-		}
+		}*/
         if (!PlayerPrefs.HasKey("FirstPlay"))
         {
             PlayerPrefs.SetInt("FirstPlay", 0);
@@ -49,8 +48,8 @@ public class LEVELMANAGER : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ZPlayerPrefs.DeleteAll();
-        //PlayerPrefs.DeleteAll();
+        /*ZPlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();*/
         Loading = GameObject.Find("LoadingTxt").GetComponent<TextMeshProUGUI>();
         ListAdd();
         if(POINTMANAGER.playerName != null)
@@ -58,13 +57,14 @@ public class LEVELMANAGER : MonoBehaviour
             inputName.text = POINTMANAGER.playerName; 
         }
         firstPlay = PlayerPrefs.GetInt("FirstPlay");
-        if (firstPlay == 0 || firstPlay == 1)
+		if(firstPlay == 1 )
+		{
+			Destroy(tutorial);
+		}    
+        else 
         {   
-			if(firstPlay == 1 )
-			{
-				Destroy(tutorial);
-			}    
-		}
+            tutorial.SetActive(true);
+        }
         
     }
 
@@ -139,14 +139,9 @@ public class LEVELMANAGER : MonoBehaviour
     {
         if (nick != "")
         {
-            if (/*level.Equals("Level_1") &&*/ firstPlay == 0)
-            {   
-                tutorial.SetActive(true);
-            }
-            else
-            {
-                StartCoroutine(LoadGame(level));
-            }
+
+            StartCoroutine(LoadGame(level));
+
         }
         else
         {
@@ -168,7 +163,6 @@ public class LEVELMANAGER : MonoBehaviour
     { 
         Destroy(tutorial);
         PlayerPrefs.SetInt("FirstPlay", 1);
-        StartCoroutine(LoadGame("Level_1"));
     }
 
     public void InputEnd()

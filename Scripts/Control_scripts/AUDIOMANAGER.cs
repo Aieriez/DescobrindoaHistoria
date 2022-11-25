@@ -24,10 +24,6 @@ public class AUDIOMANAGER : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-         
-    }
     void Update()
     {
         if (!source.isPlaying && !audioPause)

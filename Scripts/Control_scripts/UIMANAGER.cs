@@ -118,7 +118,7 @@ public class UIMANAGER : MonoBehaviour
     {
         SceneManager.LoadScene(CURRENTSCENE.instance.level);
         Time.timeScale = 1;
-        AUDIOMANAGER.instance.audioPause = false;
+        AudioListener.pause = false;
     }
 
     void GoMenu()
@@ -126,6 +126,9 @@ public class UIMANAGER : MonoBehaviour
         SceneManager.LoadScene(1);
         Time.timeScale = 1;
         GAMEMANAGER.instance.playing = false;
+        AUDIOMANAGER.instance.source.Stop();
+        AUDIOMANAGER.instance.audioPause = true;
+        AudioListener.pause = false;
     }
 
     //Win Methods

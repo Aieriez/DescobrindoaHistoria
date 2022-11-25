@@ -8,17 +8,25 @@ public class InfoButton : MonoBehaviour
     [SerializeField]
     GameObject infoPanel;
     [SerializeField]
-    Button infoButton, playButton, rankButton, tutorialOn, tutorialOff;
+    Button infoButton, playButton, rankButton, tutorialOn, tutorialOff, resetButton;
     bool isactive = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        resetButton.interactable = false;
         infoPanel.SetActive(isactive);
         infoButton = this.gameObject.GetComponent<Button>();
         infoButton.onClick.AddListener(() => ShowInfoPanel());
         tutorialOn.onClick.AddListener(() => TutorialOnOff(0));
         tutorialOff.onClick.AddListener(() => TutorialOnOff(1));
+        resetButton.onClick.AddListener(() => ResetGame());
+        
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            resetButton.interactable = true;
+        }
+        
         if(PlayerPrefs.HasKey("FirstPlay"))
         {
             int on = PlayerPrefs.GetInt("FirstPlay");
@@ -32,6 +40,16 @@ public class InfoButton : MonoBehaviour
                 tutorialOn.interactable = true;
                 tutorialOff.interactable = false;
             }
+        }
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            if(Input.GetKeyDown(KeyCode.Delete))
+            {
+               resetButton.interactable = !resetButton.interactable; 
+            }   
         }
     }
 
@@ -56,7 +74,12 @@ public class InfoButton : MonoBehaviour
         {
             tutorialOn.interactable = true;
             tutorialOff.interactable = false;
-        }
-        
+        }   
+    }
+    private void ResetGame()
+    {
+        ZPlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
+        DataManager.data.CleanRank();
     }
 }

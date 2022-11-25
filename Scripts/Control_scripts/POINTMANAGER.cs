@@ -58,8 +58,8 @@ public class POINTMANAGER : MonoBehaviour
 		for (int i = 1; i <= 5; i++)
 		{
 			totalPoints += ZPlayerPrefs.GetInt(playerName + "Level_"+i);
+			ZPlayerPrefs.DeleteKey(playerName + "Level_"+i);
 		}
-		print(totalPoints);
 		DataManager.data.InsertIntoRank(playerName, totalPoints);
 	}
 
@@ -99,7 +99,6 @@ public class POINTMANAGER : MonoBehaviour
 			pass = alfanumericRandom(12);
 			SavePassword(pass);
 		}
-		print(pass);
 		return pass;
 	}
 

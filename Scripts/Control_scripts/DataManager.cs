@@ -173,6 +173,28 @@ public class DataManager : MonoBehaviour
         dbconn = null;
     }
 
+    public void CleanRank()
+    {    
+        string conn = SetDataBaseClass.SetDataBase(DataBaseName +".db");
+        IDbConnection dbconn;
+        IDbCommand cmd;
+        
+        using (dbconn = new SqliteConnection(conn))
+        {   
+            dbconn.Open();
+            using (cmd = dbconn.CreateCommand())
+            {
+                string sql = "DELETE FROM Players";
+                cmd.CommandText = sql;
+                cmd.ExecuteNonQuery();
+            }
+            cmd.Dispose();
+            cmd = null;
+        }
+        dbconn.Close();
+        dbconn = null;
+    }
+
 }
 
 

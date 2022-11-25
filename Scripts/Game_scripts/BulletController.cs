@@ -28,16 +28,7 @@ public class BulletController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) 
-    {        
-        
-        if (this.gameObject.name == "RobotBomb" || this.gameObject.name == "RobotBomb(Clone)")
-        {
-            this.gameObject.GetComponent<Animator>().Play("RobotBombExplosion");
-        }
-        else
-        {
-            
-            Destroy(gameObject);
-        }
+    {           
+        Destroy(gameObject);
     }
 }

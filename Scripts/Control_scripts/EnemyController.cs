@@ -36,7 +36,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private AudioClip eClips;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -167,9 +166,6 @@ public class EnemyController : MonoBehaviour
         spRenderer.flipX = flip;
         moveLeft = move;
     }
-    
-
-
 
     private void OnDrawGizmos()
     {
@@ -195,9 +191,9 @@ public class EnemyController : MonoBehaviour
         
     }
 
-    private void Death ()
+    /*private void Death ()
     {
         iTween.ColorTo(this.gameObject, iTween.Hash("g",0,"b",0, "r",0, "a",0, "time", 0.1f, "looptype", iTween.LoopType.pingPong));
         Destroy(this.gameObject, 2.2f);
-    }
+    }*/
 }

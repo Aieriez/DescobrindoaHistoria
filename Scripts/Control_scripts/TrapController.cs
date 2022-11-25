@@ -6,7 +6,7 @@ public class TrapController : MonoBehaviour
 {
    public float move;
     
-   public WaitForSeconds tempo = new WaitForSeconds(3);
+   public WaitForSeconds tempo = new WaitForSeconds(5);
 
    public GameObject trap;
 
@@ -42,5 +42,13 @@ public class TrapController : MonoBehaviour
          StartCoroutine(Spawner());
       }
       
+   }
+
+   void OnCollisionEnter2D(Collision2D other) 
+   {
+      if(other.gameObject.CompareTag("Explosion"))
+      {
+         Destroy(this.gameObject);
+      }
    }
 }
