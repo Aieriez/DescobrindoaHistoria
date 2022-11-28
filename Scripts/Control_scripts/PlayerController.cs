@@ -106,7 +106,8 @@ public class PlayerController : MonoBehaviour
                             playerAnimation.SetBool("IsPushingLeft", true);
                             playerAnimation.SetBool("IsPushingRight", false);
                         }
-
+                        
+                        box.GetComponent<Rigidbody2D>().isKinematic = false;
                         GetComponent<FixedJoint2D>().enabled = true;
                         GetComponent<FixedJoint2D>().connectedBody = box.GetComponent<Rigidbody2D>();
                     }
@@ -117,6 +118,8 @@ public class PlayerController : MonoBehaviour
                         playerAnimation.SetBool("IsPushingLeft", false);
                         GetComponent<FixedJoint2D>().connectedBody = null;
                         GetComponent<FixedJoint2D>().enabled = false;
+                        box.GetComponent<Rigidbody2D>().isKinematic = true;
+                        box.GetComponent<Rigidbody2D>().velocity = new Vector2 (0, 0);
                         box = null;
                     }
                 }
