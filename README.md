@@ -1,4 +1,7 @@
-# DescobrindoaHistoria
+# Descobrindo a Historia
+<ul>
+  <img src="https://github.com/Aieriez/DescobrindoaHistoria/blob/main/Menu%20Incial.png">
+</ul>
 
 Objetivo: 
 Inovar a forma de ensinar História, utilizando a tecnologia como ferramenta para tornar o estudo mais atrativo e eficaz.
@@ -21,3 +24,5 @@ An educational game was developed using the Unity platform and an SQLite databas
 Results:
 
 The game offers a new approach to reviewing historical content, encouraging students to seek more information about the facts covered. In addition, ranking the ten highest scorers stimulates competitiveness and collaborative learning.
+
+
