@@ -9,6 +9,7 @@ Resultados:
 O jogo criado oferece uma nova abordagem para a revisão de conteúdos históricos, incentivando os estudantes a buscarem mais informações sobre os fatos abordados. Além disso, o ranking dos dez maiores pontuadores estimula a competitividade e o aprendizado colaborativo.
 
 #English
+
 Objective: To innovate the way History is taught, using technology as a tool to make the study more attractive and effective.
 
 Methodology:
