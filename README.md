@@ -1,5 +1,6 @@
 # DescobrindoaHistoria
 
+#Português
 Objetivo: Inovar a forma de ensinar História, utilizando a tecnologia como ferramenta para tornar o estudo mais atrativo e eficaz.
 
 Metodologia: 
